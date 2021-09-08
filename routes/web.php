@@ -16,14 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return('home');
-})->middleware('auth');
+
 
 Auth::routes();
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Route::get('/code/show', [HomeController::class, 'code'])->name('code.show');
 Route::post('/code', [HomeController::class, 'checkCode'])->name('code.check');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/sendCode', [HomeController::class, 'codeSend'])->name('code.send.again');
 //Route::get('dashboard', [App\Http\Controllers\UserController::class, 'dashboard'])->middleware('auth');
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => ['is_admin', "auth"]], function () {
@@ -33,4 +32,8 @@ Route::group(['prefix' => 'admin'], function () {
         require_once('admin/category.php');
         require_once('admin/voucher.php');
     });
+});
+
+Route::group(['middleware' => ["auth"]], function () {
+    Route::get('/home', [HomeController::class, 'home'])->name('home');
 });

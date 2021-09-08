@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Website_typeSeeder::class);
         $this->call(Familiarity_typeSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(AdminSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(VoucherSeeder::class);
         $this->call(Product_voucherSeeder::class);

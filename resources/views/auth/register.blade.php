@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header" ><h4 style="float: right">ثبت نام</h4></div>
 
                 <div class="card-body" style="direction: rtl">
                     <form method="POST" action="{{ route('register') }}">
@@ -60,7 +60,7 @@
                             <label for="website_type_id" class="col-md-4 col-form-label text-md-right">نوع سایت درخواستی:</label>
 
                             <div class="col-md-6">
-                                <select id="website_type_id" type="text" class="form-control @error('website_type_id') is-invalid @enderror" name="website_type_id" value="{{ old('website_type_id') }}" required autocomplete="website_type_id">
+                                <select id="website_type_id" type="text" class="form-control @error('website_type_id') is-invalid @enderror" name="website_type_id" required >
                                     <option value=""></option>
                                     @foreach($website_types as $web)
                                     <option value="{{$web->id}}">{{ $web->name }}</option>
@@ -79,7 +79,7 @@
                             <label for="familiarity_type_id" class="col-md-4 col-form-label text-md-right">نحوه ی آشنایی با ما:</label>
 
                             <div class="col-md-6">
-                                <select id="familiarity_type_id" type="text" class="form-control @error('familiarity_type_id') is-invalid @enderror" name="familiarity_type_id" value="{{ old('familiarity_type_id') }}" required autocomplete="familiarity_type_id">
+                                <select id="familiarity_type_id" type="text" class="form-control @error('familiarity_type_id') is-invalid @enderror" name="familiarity_type_id"  required>
                                     <option value=""></option>
                                     @foreach($familiarity_types as $fam)
                                         <option value="{{$fam->id}}">{{ $fam->name }}</option>

@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->index();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->integer('state');
             $table->integer('price')->nullable();
             $table->softDeletes();

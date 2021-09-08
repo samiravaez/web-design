@@ -9,7 +9,7 @@ use Illuminate\Support\Carbon;
 class Token extends Model
 {
     use HasFactory;
-    const EXPIRATION_TIME = 2; // minutes
+    const EXPIRATION_TIME = 1; // minutes
 
     protected $fillable = [
         'code',

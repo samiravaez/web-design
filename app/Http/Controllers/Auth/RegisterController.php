@@ -42,7 +42,7 @@ class RegisterController extends Controller
         if (auth()->user()->is_admin == 1) {
             return '/admin';
         }
-        return '/';
+        return '/home';
     }
 
     /**
