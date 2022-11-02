@@ -26,11 +26,11 @@ Route::post('/sendCode', [HomeController::class, 'codeSend'])->name('code.send.a
 //Route::get('dashboard', [App\Http\Controllers\UserController::class, 'dashboard'])->middleware('auth');
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => ['is_admin', "auth"]], function () {
-        require_once('admin/dashboard.php');
-        require_once('admin/user.php');
-        require_once('admin/product.php');
-        require_once('admin/category.php');
-        require_once('admin/voucher.php');
+        require('admin/dashboard.php');
+        require('admin/user.php');
+        require('admin/product.php');
+        require('admin/category.php');
+        require('admin/voucher.php');
     });
 });
 

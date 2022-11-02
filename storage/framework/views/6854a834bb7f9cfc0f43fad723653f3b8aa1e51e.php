@@ -1,38 +1,38 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
+    <title><?php echo e(config('app.name', 'Laravel')); ?> - <?php echo $__env->yieldContent('title'); ?></title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset("assets/media/image/favicon.png")}}"/>
+    <link rel="shortcut icon" href="<?php echo e(asset("assets/media/image/favicon.png")); ?>"/>
 
     <!-- Plugin styles -->
-    <link rel="stylesheet" href="{{asset("vendors/bundle.css")}}" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset("vendors/bundle.css")); ?>" type="text/css">
 
     <!-- Datepicker -->
-    <link rel="stylesheet" href="{{asset("vendors/datepicker/daterangepicker.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/Datepiker/persian-datepicker.css")}}">
+    <link rel="stylesheet" href="<?php echo e(asset("vendors/datepicker/daterangepicker.css")); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset("assets/Datepiker/persian-datepicker.css")); ?>">
 
 
     <!-- Fullcalendar -->
-    <link rel="stylesheet" href="{{asset("vendors/fullcalendar/fullcalendar.min.css")}}" type="text/css">
-    <link href='{{asset("assets/Cal/fullcalendar.css")}}' rel='stylesheet'/>
-    <link href='{{asset("assets/Cal/fullcalendar.print.css")}}' rel='stylesheet' media='print'/>
+    <link rel="stylesheet" href="<?php echo e(asset("vendors/fullcalendar/fullcalendar.min.css")); ?>" type="text/css">
+    <link href='<?php echo e(asset("assets/Cal/fullcalendar.css")); ?>' rel='stylesheet'/>
+    <link href='<?php echo e(asset("assets/Cal/fullcalendar.print.css")); ?>' rel='stylesheet' media='print'/>
 
     <!-- Vmap -->
-    <link rel="stylesheet" href="{{asset("vendors/vmap/jqvmap.min.css")}}">
+    <link rel="stylesheet" href="<?php echo e(asset("vendors/vmap/jqvmap.min.css")); ?>">
 
     <!-- App styles -->
-    <link rel="stylesheet" href="{{asset("assets/css/app.min.css")}}" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset("assets/css/app.min.css")); ?>" type="text/css">
 
 
-    @yield("custom-style")
+    <?php echo $__env->yieldContent("custom-style"); ?>
 </head>
 <body>
 
@@ -64,9 +64,9 @@
             <li class="nav-item">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">ایجاد</a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="{{route('user.create')}}" class="dropdown-item">کاربر</a>
-                    <a href="{{route('category.list')}}" class="dropdown-item">دسته‌بندی</a>
-                    <a href="{{route('product.create')}}" class="dropdown-item">محصول</a>
+                    <a href="<?php echo e(route('user.create')); ?>" class="dropdown-item">کاربر</a>
+                    <a href="<?php echo e(route('category.list')); ?>" class="dropdown-item">دسته‌بندی</a>
+                    <a href="<?php echo e(route('product.create')); ?>" class="dropdown-item">محصول</a>
                 </div>
             </li>
         </ul>
@@ -90,7 +90,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-left dropdown-menu-big">
                     <div class="p-4 text-center d-flex justify-content-between"
-                         data-backround-image="{{asset("assets/media/image/image1.jpg")}}">
+                         data-backround-image="<?php echo e(asset("assets/media/image/image1.jpg")); ?>">
                         <h6 class="mb-0">اطلاعیه‌ها</h6>
                         <small class="font-size-11 opacity-7">1 اطلاعیه خوانده نشده</small>
                     </div>
@@ -230,41 +230,41 @@
             <div class="flex-grow-1">
                 <ul>
                     <li>
-                        <a class="{{ (request()->is('admin')) ? 'active' : '' }}" href="#" data-toggle="tooltip"
+                        <a class="<?php echo e((request()->is('admin')) ? 'active' : ''); ?>" href="#" data-toggle="tooltip"
                            data-placement="right" title="داشبورد" data-nav-target="#dashboards">
                             <i data-feather="bar-chart-2"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ (request()->routeIs(["category.list","category.edit","product.create","product.list"])) ? 'active' : '' }}"
+                        <a class="<?php echo e((request()->routeIs(["category.list","category.edit","product.create","product.list"])) ? 'active' : ''); ?>"
                            href="#" data-toggle="tooltip" data-placement="right" title="محصولات"
                            data-nav-target="#apps">
                             <i data-feather="command"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ (request()->routeIs(["orders.index"])) ? 'active' : '' }}" href="#"
+                        <a class="<?php echo e((request()->routeIs(["orders.index"])) ? 'active' : ''); ?>" href="#"
                            data-toggle="tooltip"
                            data-placement="right" title="سفارشات" data-nav-target="#orders">
                             <i data-feather="shopping-bag"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ (request()->routeIs(["user.list","user.edit"])) ? 'active' : '' }}" href="#"
+                        <a class="<?php echo e((request()->routeIs(["user.list","user.edit"])) ? 'active' : ''); ?>" href="#"
                            data-toggle="tooltip" data-placement="right" title="کاربران"
                            data-nav-target="#elements">
                             <i data-feather="users"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ (request()->routeIs(["tickets.index","tickets.list","tickets.create"])) ? 'active' : '' }}"
+                        <a class="<?php echo e((request()->routeIs(["tickets.index","tickets.list","tickets.create"])) ? 'active' : ''); ?>"
                            href="#" data-toggle="tooltip" data-placement="right" title="تیکت ها"
                            data-nav-target="#tickets">
                             <i data-feather="message-square"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ (request()->routeIs(["terms.*","faqs.*"])) ? 'active' : '' }}"
+                        <a class="<?php echo e((request()->routeIs(["terms.*","faqs.*"])) ? 'active' : ''); ?>"
                            href="#" data-toggle="tooltip" data-placement="right" title="صفحات"
                            data-nav-target="#pages">
                             <i data-feather="copy"></i>
@@ -275,20 +275,20 @@
             <div>
                 <ul>
                     <li>
-                        <a class="{{ (request()->routeIs(["settings.*",'comments.*'])) ? 'active' : '' }}"
+                        <a class="<?php echo e((request()->routeIs(["settings.*",'comments.*'])) ? 'active' : ''); ?>"
                            href="#" data-toggle="tooltip" data-placement="right" title="تنظیمات"
                            data-nav-target="#settings">
                             <i data-feather="settings"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('logout') }}"
+                        <a href="<?php echo e(route('logout')); ?>"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             خروج
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
+                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                            <?php echo csrf_field(); ?>
                         </form>
                     </li>
                 </ul>
@@ -302,8 +302,8 @@
             <div>
                 <div id="navigation-logo">
                     <a href="index.html">
-                        <img class="logo" src="{{asset("assets/media/image/logo-F.png")}}" alt="logo">
-                        <img class="logo-light" src="{{asset("assets/media/image/logo-light.png")}}" alt="light logo">
+                        <img class="logo" src="<?php echo e(asset("assets/media/image/logo-F.png")); ?>" alt="logo">
+                        <img class="logo-light" src="<?php echo e(asset("assets/media/image/logo-light.png")); ?>" alt="light logo">
                     </a>
                 </div>
             </div>
@@ -311,42 +311,42 @@
 
             <div class="navigation-menu-group">
 
-                <div class="{{ (request()->is('admin')) ? 'open' : '' }}" id="dashboards">
+                <div class="<?php echo e((request()->is('admin')) ? 'open' : ''); ?>" id="dashboards">
                     <ul>
                         <li class="navigation-divider">داشبورد</li>
-                        <li><a class="{{ (request()->routeIs("dashboard")) ? 'active' : '' }}"
-                               href="{{route("dashboard")}}">اطلاعات کلی</a></li>
-                        <li><a class="{{ (request()->routeIs("dashboard")) ? 'active' : '' }}"
-                               href="{{route("product.list")}}">محصولات</a></li>
+                        <li><a class="<?php echo e((request()->routeIs("dashboard")) ? 'active' : ''); ?>"
+                               href="<?php echo e(route("dashboard")); ?>">اطلاعات کلی</a></li>
+                        <li><a class="<?php echo e((request()->routeIs("dashboard")) ? 'active' : ''); ?>"
+                               href="<?php echo e(route("product.list")); ?>">محصولات</a></li>
                     </ul>
                 </div>
                 <div id="apps"
-                     class="{{ (request()->is('admin/products/list*') or request()->routeIs(["category.list","category.edit"])) ? 'open' : '' }}">
+                     class="<?php echo e((request()->is('admin/products/list*') or request()->routeIs(["category.list","category.edit"])) ? 'open' : ''); ?>">
                     <ul>
                         <li class="navigation-divider">محصولات</li>
                         <li>
-                            <a href="{{route('product.list')}}"
-                               class="{{ (request()->routeIs(["product.list"])) ? 'active' : '' }}">
+                            <a href="<?php echo e(route('product.list')); ?>"
+                               class="<?php echo e((request()->routeIs(["product.list"])) ? 'active' : ''); ?>">
                                 <span>لیست محصولات</span>
                                 <span class="badge badge-danger"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('product.create')}}"
-                               class="{{ (request()->routeIs(["product.create"])) ? 'active' : '' }}">
+                            <a href="<?php echo e(route('product.create')); ?>"
+                               class="<?php echo e((request()->routeIs(["product.create"])) ? 'active' : ''); ?>">
                                 <span>افزودن محصول</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('voucher.list')}}"
-                               class="{{ (request()->routeIs(["voucher.list"])) ? 'active' : '' }}">
+                            <a href="<?php echo e(route('voucher.list')); ?>"
+                               class="<?php echo e((request()->routeIs(["voucher.list"])) ? 'active' : ''); ?>">
                                 <span>لیست کوپن ها</span>
                                 <span class="badge badge-danger"></span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('category.list')}}"
-                               class="{{ (request()->routeIs(["category.list","category.edit"])) ? 'active' : '' }}">
+                            <a href="<?php echo e(route('category.list')); ?>"
+                               class="<?php echo e((request()->routeIs(["category.list","category.edit"])) ? 'active' : ''); ?>">
                                 <span>دسته بندی ها</span>
                             </a>
                         </li>
@@ -357,102 +357,102 @@
                         </li>
                     </ul>
                 </div>
-                <div id="orders" class="{{ (request()->routeIs(["orders.*"])) ? 'open' : '' }}">
+                <div id="orders" class="<?php echo e((request()->routeIs(["orders.*"])) ? 'open' : ''); ?>">
                     <ul>
                         <li class="navigation-divider">سفارشات</li>
                         <li>
                             <a href=""
-                               class="{{ (request()->routeIs("orders.index")) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs("orders.index")) ? 'active' : ''); ?>">
                                 <span>لیست سفارش ها عادی</span>
                             </a>
                         </li>
                         <li>
                             <a href=""
-                               class="{{ (request()->routeIs("orders.auto")) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs("orders.auto")) ? 'active' : ''); ?>">
                                 <span>لیست سفارش ها اتوماتیک</span>
                             </a>
                         </li>
                         <li>
                             <a href=""
-                               class="{{ (request()->routeIs("orders.transaction")) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs("orders.transaction")) ? 'active' : ''); ?>">
                                 <span>لیست پرداخت ها</span>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div id="elements"
-                     class="{{ (request()->routeIs(["user.list","user.create","user.edit"])) ? 'open' : '' }}">
+                     class="<?php echo e((request()->routeIs(["user.list","user.create","user.edit"])) ? 'open' : ''); ?>">
                     <ul>
                         <li class="navigation-divider">کاربران</li>
                         <li>
-                            <a href="{{route('user.list')}}"
-                               class="{{ (request()->routeIs("user.list")) ? 'active' : '' }}">
+                            <a href="<?php echo e(route('user.list')); ?>"
+                               class="<?php echo e((request()->routeIs("user.list")) ? 'active' : ''); ?>">
                                 <span>لیست کاربران</span>
                                 <span class="badge badge-danger">5</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('user.create')}}"
-                               class="{{ (request()->routeIs(["user.create","user.edit"])) ? 'active' : '' }}">
+                            <a href="<?php echo e(route('user.create')); ?>"
+                               class="<?php echo e((request()->routeIs(["user.create","user.edit"])) ? 'active' : ''); ?>">
                                 <span>افزودن کاربر</span>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div id="tickets"
-                     class="{{ (request()->routeIs(["ticket.create","ticket.list"])) ? 'open' : '' }}">
+                     class="<?php echo e((request()->routeIs(["ticket.create","ticket.list"])) ? 'open' : ''); ?>">
                     <ul>
                         <li class="navigation-divider">تیکت ها</li>
                         <li>
                             <a href=""
-                               class="{{ (request()->routeIs(["tickets.index"])) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs(["tickets.index"])) ? 'active' : ''); ?>">
                                 <span>تیکت ها</span>
                             </a>
                         </li>
                         <li class="d-none">
                             <a href=""
-                               class="{{ (request()->routeIs(["tickets.create"])) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs(["tickets.create"])) ? 'active' : ''); ?>">
                                 <span>افزودن تیکت</span>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div id="pages"
-                     class="{{ (request()->routeIs(["terms.*","faqs.*"])) ? 'open' : '' }}">
+                     class="<?php echo e((request()->routeIs(["terms.*","faqs.*"])) ? 'open' : ''); ?>">
                     <ul>
                         <li class="navigation-divider">صفحات</li>
                         <li>
                             <a href=""
-                               class="{{ (request()->routeIs(["terms.*"])) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs(["terms.*"])) ? 'active' : ''); ?>">
                                 <span>terms</span>
                             </a>
                         </li>
                         <li>
                             <a href=""
-                               class="{{ (request()->routeIs(["faqs.*"])) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs(["faqs.*"])) ? 'active' : ''); ?>">
                                 <span>faqs</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-                <div id="settings" class="{{ (request()->routeIs(["settings.*","comments.*"])) ? 'open' : '' }}">
+                <div id="settings" class="<?php echo e((request()->routeIs(["settings.*","comments.*"])) ? 'open' : ''); ?>">
                     <ul>
                         <li class="navigation-divider">تنظیمات</li>
                         <li>
                             <a href=""
-                               class="{{ (request()->routeIs(["settings.themeSettings.index"])) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs(["settings.themeSettings.index"])) ? 'active' : ''); ?>">
                                 <span>تنظیمات قالب</span>
                             </a>
                         </li>
                         <li>
                             <a href=""
-                               class="{{ (request()->routeIs(["settings.panels"])) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs(["settings.panels"])) ? 'active' : ''); ?>">
                                 <span>تنظیمات پنل ها</span>
                             </a>
                         </li>
                         <li>
                             <a href=""
-                               class="{{ (request()->routeIs(["comments.*"])) ? 'active' : '' }}">
+                               class="<?php echo e((request()->routeIs(["comments.*"])) ? 'active' : ''); ?>">
                                 <span>تنظیمات کامنت ها</span>
                             </a>
                         </li>
@@ -467,22 +467,10 @@
 
     <!-- begin::main-content -->
     <div class="main-content">
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
 
     <!-- begin::footer -->
-    {{--<footer>
-        <div class="container-fluid">
-            <div>© 1399 | قالب مدیریت بورداش ورژن 1.0.0 ارایه از <a href="">AFARIDTEAM</a></div>
-
-            <div>
-                <nav class="nav">
-                    <a href="https://www.rtl-theme.com/standard/" class="nav-link">لیسانس</a>
-                    <a href="#" class="nav-link">تغییر لاگ</a>
-                    <a href="#" class="nav-link">راهنمایی</a>
-                </nav>
-            </div>
-        </div>
-    </footer>--}}
+    
     <!-- end::footer -->
     </div>
     <!-- end::main-content -->
@@ -492,41 +480,41 @@
 
 
 <!-- Plugin scripts -->
-<script src="{{asset("vendors/bundle.js")}}"></script>
+<script src="<?php echo e(asset("vendors/bundle.js")); ?>"></script>
 
 <!-- Chartjs -->
-<script src="{{asset("vendors/charts/chartjs/chart.min.js")}}"></script>
+<script src="<?php echo e(asset("vendors/charts/chartjs/chart.min.js")); ?>"></script>
 
 <!-- Apex chart -->
-<script src="{{asset("vendors/charts/apex/apexcharts.min.js")}}"></script>
+<script src="<?php echo e(asset("vendors/charts/apex/apexcharts.min.js")); ?>"></script>
 
 <!-- Circle progress -->
-<script src="{{asset("vendors/circle-progress/circle-progress.min.js")}}"></script>
+<script src="<?php echo e(asset("vendors/circle-progress/circle-progress.min.js")); ?>"></script>
 
 <!-- Peity -->
-<script src="{{asset("vendors/charts/peity/jquery.peity.min.js")}}"></script>
-<script src="{{asset("assets/js/examples/charts/peity.js")}}"></script>
+<script src="<?php echo e(asset("vendors/charts/peity/jquery.peity.min.js")); ?>"></script>
+<script src="<?php echo e(asset("assets/js/examples/charts/peity.js")); ?>"></script>
 
 <!-- Datepicker -->
-{{--<script src="{{asset("vendors/datepicker/daterangepicker.js")}}"></script>--}}
-{{--<script src="{{asset("assets/Datepiker/persian-datepicker.js")}}"></script>--}}
-{{--<script src="{{asset("vendors/datepicker/bootstrap-datepicker.fa.min.js")}}"></script>--}}
+
+
+
 
 
 <!-- Slick -->
-<script src="{{asset("vendors/slick/slick.min.js")}}"></script>
+<script src="<?php echo e(asset("vendors/slick/slick.min.js")); ?>"></script>
 
 <!-- Vamp -->
-<script src="{{asset("vendors/vmap/jquery.vmap.min.js")}}"></script>
-<script src="{{asset("vendors/vmap/maps/jquery.vmap.usa.js")}}"></script>
-<script src="{{asset("assets/js/examples/vmap.js")}}"></script>
+<script src="<?php echo e(asset("vendors/vmap/jquery.vmap.min.js")); ?>"></script>
+<script src="<?php echo e(asset("vendors/vmap/maps/jquery.vmap.usa.js")); ?>"></script>
+<script src="<?php echo e(asset("assets/js/examples/vmap.js")); ?>"></script>
 
 
 <!-- a -->
-<script src='{{asset("assets/Cal/moment.js")}}'></script>
-{{--<script src='{{asset("assets/Cal/moment-jalaali.js")}}'></script>--}}
-{{--<script src='{{asset("assets/Cal/fullcalendar.js")}}'></script>--}}
-{{--<script src='{{asset("assets/Cal/fa.js")}}'></script>--}}
+<script src='<?php echo e(asset("assets/Cal/moment.js")); ?>'></script>
+
+
+
 
 
 <div class="colors"> <!-- To use theme colors with Javascript -->
@@ -546,8 +534,9 @@
 
 
 <!-- App scripts -->
-<script src="{{asset("assets/js/app.min.js")}}"></script>
+<script src="<?php echo e(asset("assets/js/app.min.js")); ?>"></script>
 
-@yield("custom-script")
+<?php echo $__env->yieldContent("custom-script"); ?>
 </body>
 </html>
+<?php /**PATH C:\Users\SamiraVz\Desktop\web-design\resources\views/admin/main.blade.php ENDPATH**/ ?>

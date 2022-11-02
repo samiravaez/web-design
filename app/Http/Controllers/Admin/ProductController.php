@@ -66,7 +66,7 @@ class ProductController extends Controller
     public function show()
     {
         $products = Product::select('id', 'cat_id', 'name', 'description', 'image', 'price', 'discount_value', 'discount_type', 'preview_link')
-            ->paginate(10);
+            ->paginate($this->paginationNum);
         return view('admin.product.list', compact('products'));
     }
 
